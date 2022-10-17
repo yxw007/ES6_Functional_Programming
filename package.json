@@ -1,0 +1,21 @@
+{
+	"name": "es6_functional_programming",
+	"version": "1.0.0",
+	"description": "虽然看完了 JS 红宝书，但是在 js 编程方式上总感觉还是缺点什么，于是找到网友的推荐，阅读了[**JavaScript ES6 函数式编程入门经典**](https://book.douban.com/subject/30180100/) 豆瓣评分：8.4，这本书满足的我的需求。\r 所以根据本书的内容，记录自己的学习笔记",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/yxw007/ES6_Functional_Programming.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/yxw007/ES6_Functional_Programming/issues"
+	},
+	"homepage": "https://github.com/yxw007/ES6_Functional_Programming#readme"
+}
