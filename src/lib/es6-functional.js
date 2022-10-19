@@ -78,7 +78,7 @@ const reduce1 = (array, fn) => {
 		accumlator = fn(accumlator, value)
 	}
 
-	return [accumlator]
+	return accumlator
 }
 
 const reduce = (array, fn, initialValue) => {
@@ -102,7 +102,7 @@ const reduce = (array, fn, initialValue) => {
 		}
 	}
 
-	return [accumlator]
+	return accumlator
 }
 
 const zip = (leftArr, rightArr, fn) => {
@@ -163,8 +163,74 @@ const partial = function (fn, ...partialArgs) {
 	};
 };
 
+/**
+ * compose
+ * @param {*} a 
+ * @param {*} b 
+ * @returns 
+ */
+const compose = function (a, b) {
+	//接收2个函数，然后返回一个函数c, 函数逆序执行(从右往左执行参数函数)
+	return (c) => {
+		return a(b(c));
+	};
+}
+
+/**
+ * 支持多参数的compose
+ * @param  {...any} fns 
+ * @returns 
+ */
+const composeN = function (...fns) {
+	return (value) => {
+		return reduce(fns.reverse(), (acc, fn) => fn(acc), value);
+	}
+}
+
+/**
+ * pipe 是compseN的复制品，只是执行顺序是从左至右执行参数函数
+ * @param  {...any} fns 
+ * @returns 
+ */
+const pipe = (...fns) => {
+	return (value) => {
+		return reduce(fns, (acc, fn) => fn(acc), value);
+	}
+}
+
+const Container = function (val) {
+	this.value = val;
+}
+
+Container.of = function (value) {
+	return new Container(value);
+}
+
+Container.prototype.map = function (fn) {
+	return Container.of(fn(this.value));
+}
+
+const MayBe = function (val) {
+	this.value = val;
+}
+
+MayBe.of = function (val) {
+	return new MayBe(val);
+}
+
+MayBe.prototype.isNothing = function () {
+	return (this.value === null || this.value === undefined);
+};
+
+MayBe.prototype.map = function (fn) {
+	//! 关键代码：如果为非法值直接返回空，跳过fn调用避免报错
+	return this.isNothing() ? MayBe.of(null) : MayBe.of(fn(this.value));
+};
+
 export {
 	forEach, every, some, tap, unary, once, menolized,
 	map, filter, concatAll, reduce1, reduce, zip,
-	curry, curryN, partial
+	curry, curryN, partial,
+	compose, composeN, pipe,
+	Container, MayBe,
 }
