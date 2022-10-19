@@ -142,8 +142,29 @@ const curryN = (fn) => {
 	};
 };
 
+/**
+ * 偏函数
+ * @param {*} fn 
+ * @param  {...any} partialArgs 
+ * @returns 
+ */
+const partial = function (fn, ...partialArgs) {
+	let args = partialArgs.slice(0);
+	return function (...fullArguments) {
+		let arg = 0;
+		//! 补全参数
+		for (let i = 0; i < args.length && arg < fullArguments.length; i++) {
+			//! 将占位的参数进行赋值
+			if (args[i] === undefined) {
+				args[i] = fullArguments[arg++];
+			}
+		}
+		return fn.apply(this, args);
+	};
+};
+
 export {
 	forEach, every, some, tap, unary, once, menolized,
 	map, filter, concatAll, reduce1, reduce, zip,
-	curry, curryN
+	curry, curryN, partial
 }

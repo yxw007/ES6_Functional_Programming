@@ -11,3 +11,9 @@ export function autoRun(name, execute) {
 	execute();
 }
 
+export async function autoRunPromise(name, execute) {
+	console.log(`-------------------------------------${name}------------------------------------`);
+	return new Promise((resolve) => {
+		execute(resolve);
+	});
+}

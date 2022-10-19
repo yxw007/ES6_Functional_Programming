@@ -1,5 +1,5 @@
-import { autoRun } from '../helper.js';
-import { curry, curryN } from '../lib/es6-functional.js';
+import { autoRun, autoRunPromise } from '../helper.js';
+import { curry, curryN, partial } from '../lib/es6-functional.js';
 
 const add = (a, b) => a + b;
 
@@ -84,4 +84,67 @@ autoRun("5.curryN", () => {
 
 	//for warn
 	warnLogger("Warn message", 34)
+});
+
+autoRun("6.从数组中寻找包含数字的元素", () => {
+	//1.定义柯里化匹配函数
+	let match = curryN((expr, str) => {
+		return str.match(expr);
+	});
+
+	//2.赋值match第1个参数
+	let hasNumber = match(/[0-9]+/);
+
+	//3.定义科里化过滤函数
+	let filter = curryN((fn, arr) => {
+		return arr.filter(fn);
+	});
+
+	//4.定义过滤函数
+	let findNumbersInArray = filter(hasNumber);
+	console.log("Finding numbers via curry", findNumbersInArray(["js", "number1"]))
+	//Finding numbers via curry [ 'number1' ]
+})
+
+autoRun("7.求平方", () => {
+	let map = curry(function (f, ary) {
+		return ary.map(f);
+	});
+
+	let squareAll = map((x) => x * x);
+	console.log("Squaring the array with currying", squareAll([1, 2, 3]))
+	//Squaring the array with currying [ 1, 4, 9 ]
+})
+
+await autoRunPromise("8.timeout", (resolve) => {
+	setTimeout(() => console.log("Print after 10 ms."), 10);
+
+	//! 由于setTimeout参数第1个是fn,第2个参数是time，所以不能直接用curryN 需用函数包裹一层
+	const setTimeoutWrapper = (time, fn) => {
+		setTimeout(fn, time);
+	}
+
+	//赋值第1个参数
+	const delayTenMs = curryN(setTimeoutWrapper)(10);
+
+	//传第二个参数fn，调用执行
+	delayTenMs(() => {
+		console.log("Do X task");
+		resolve();
+	})
+});
+
+await autoRunPromise("9.用偏函数partial应用timeout示例", (resolve) => {
+	//! 传递部分参数，未传的参数用undefined占位
+	let delayTenMsPartial = partial(setTimeout, undefined, 10);
+	delayTenMsPartial(() => {
+		console.log("Do X. . .  task");
+		resolve();
+	})
+});
+
+autoRun("10.用偏函数partial应用json序列化", () => {
+	//! 用undefined占位第1个参数，后2个参数固定
+	let prettyPrintJson = partial(JSON.stringify, undefined, null, 2)
+	console.log("JSON pretty print via partial", prettyPrintJson({ foo: "bar", bar: "foo" }))
 });
