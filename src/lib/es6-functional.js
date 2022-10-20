@@ -6,12 +6,23 @@
  * 相关说明：
  */
 
+/**
+ * 遍历数组每一个元素，进行fn处理
+ * @param {*} arr 
+ * @param {*} fn 
+ */
 const forEach = (arr, fn) => {
 	for (let i = 0; i < arr.length; i++) {
 		fn(arr[i])
 	}
 }
 
+/**
+ * 需要每一个fn执行结果为true,结果才为true，否则就是false
+ * @param {*} arr 
+ * @param {*} fn 
+ * @returns 
+ */
 const every = (arr, fn) => {
 	let result = true;
 	for (let i = 0; i < arr.length; i++)
@@ -19,6 +30,12 @@ const every = (arr, fn) => {
 	return result
 }
 
+/**
+ * 只要一个fn执行结果为true，结果就是true
+ * @param {*} arr 
+ * @param {*} fn 
+ * @returns 
+ */
 const some = (arr, fn) => {
 	let result = false;
 	for (const value of arr)
@@ -26,16 +43,32 @@ const some = (arr, fn) => {
 	return result
 }
 
-const tap = (value) =>
-	(fn) => (
+/**
+ * 打印日志
+ * @param {*} value 
+ * @returns 
+ */
+const tap = (value) => {
+	return (fn) => (
 		typeof (fn) === 'function' && fn(value),
 		console.log(value)
 	);
+}
 
+/**
+ * 利用unary将多参转成只接收一个参数的函数
+ * @param {*} fn 
+ * @returns 
+ */
 const unary = (fn) => {
 	return fn.length === 1 ? fn : (args) => fn(args)
 }
 
+/**
+ * 限制仅执行一次
+ * @param {*} fn 
+ * @returns 
+ */
 const once = (fn) => {
 	let done = false;
 
@@ -44,11 +77,22 @@ const once = (fn) => {
 	}
 }
 
+/**
+ * 具备缓存fn结果的高阶函数
+ * @param {*} fn 
+ * @returns 
+ */
 const menolized = (fn) => {
 	const lookupTable = {};
 	return (arg) => lookupTable[arg] || (lookupTable[arg] = fn(arg))
 }
 
+/**
+ * 遍历array中的每个元素，通过fn处理返回新的对象数组
+ * @param {*} array 
+ * @param {*} fn 
+ * @returns 
+ */
 const map = (array, fn) => {
 	let results = []
 	for (const value of array)
@@ -56,6 +100,12 @@ const map = (array, fn) => {
 	return results;
 }
 
+/**
+ * 遍历array中的每个元素，通过fn处理返回满足条件的对象数组
+ * @param {*} array 
+ * @param {*} fn 
+ * @returns 
+ */
 const filter = (array, fn) => {
 	let results = []
 	for (const value of array)
@@ -63,6 +113,12 @@ const filter = (array, fn) => {
 	return results;
 }
 
+/**
+ * 将多维度数组，拍平成1维数组
+ * @param {*} arr 
+ * @param {*} fn 
+ * @returns 
+ */
 const concatAll = (arr, fn) => {
 	let result = [];
 	for (let value of arr) {//value是子数组
@@ -71,6 +127,12 @@ const concatAll = (arr, fn) => {
 	return result;
 }
 
+/**
+ * 按顺序通过fn处理每个元素，将结果作为下一次处理的入参数，依次执行到最后，最终返回处理后的结果
+ * @param {*} array 
+ * @param {*} fn 
+ * @returns 
+ */
 const reduce1 = (array, fn) => {
 	let accumlator = 0;
 
@@ -81,6 +143,14 @@ const reduce1 = (array, fn) => {
 	return accumlator
 }
 
+/**
+ * 按顺序通过fn处理每个元素，将结果作为下一次处理的入参数，依次执行到最后，最终返回处理后的结果
+ * 支持：默认初始值
+ * @param {*} array 
+ * @param {*} fn 
+ * @param {*} initialValue 
+ * @returns 
+ */
 const reduce = (array, fn, initialValue) => {
 	let accumlator;
 
@@ -105,6 +175,13 @@ const reduce = (array, fn, initialValue) => {
 	return accumlator
 }
 
+/**
+ * 将2个数组合并成一个数组
+ * @param {*} leftArr 
+ * @param {*} rightArr 
+ * @param {*} fn 
+ * @returns 
+ */
 const zip = (leftArr, rightArr, fn) => {
 	let index, results = [];
 
@@ -115,6 +192,12 @@ const zip = (leftArr, rightArr, fn) => {
 	return results;
 }
 
+/**
+ * 柯里化函数 仅接受2个函数参数
+ * 将多参转成只有一个参数的高级函数
+ * @param {*} binaryFn 
+ * @returns 
+ */
 const curry = (binaryFn) => {
 	return function (firstArg) {
 		return function (secondArg) {
@@ -123,6 +206,12 @@ const curry = (binaryFn) => {
 	};
 };
 
+/**
+ * 柯里化函数 仅接受任意个函数参数
+ * 将多参转成只有一个参数的高级函数
+ * @param {*} fn 
+ * @returns 
+ */
 const curryN = (fn) => {
 	if (typeof fn !== 'function') {
 		throw Error('No function provided');
@@ -144,6 +233,8 @@ const curryN = (fn) => {
 
 /**
  * 偏函数
+ * 特点：动态控制赋值参数，最终赋满参数后执行fn
+ * 作用：将多参数转成单参数的函数
  * @param {*} fn 
  * @param  {...any} partialArgs 
  * @returns 
@@ -164,20 +255,21 @@ const partial = function (fn, ...partialArgs) {
 };
 
 /**
- * compose
+ * compose 组合函数
+ * 特点：接收2个函数，然后返回一个函数c, 函数逆序执行(从右往左执行参数函数)
  * @param {*} a 
  * @param {*} b 
  * @returns 
  */
 const compose = function (a, b) {
-	//接收2个函数，然后返回一个函数c, 函数逆序执行(从右往左执行参数函数)
 	return (c) => {
 		return a(b(c));
 	};
 }
 
 /**
- * 支持多参数的compose
+ * compose 组合函数
+ * 支持多参数函数组合
  * @param  {...any} fns 
  * @returns 
  */
@@ -198,6 +290,10 @@ const pipe = (...fns) => {
 	}
 }
 
+/**
+ * 函子 - 基本版
+ * @param {*} val 
+ */
 const Container = function (val) {
 	this.value = val;
 }
@@ -210,6 +306,10 @@ Container.prototype.map = function (fn) {
 	return Container.of(fn(this.value));
 }
 
+/**
+ * MayBe - 函子
+ * @param {*} val 
+ */
 const MayBe = function (val) {
 	this.value = val;
 }
