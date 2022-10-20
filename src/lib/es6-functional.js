@@ -227,10 +227,48 @@ MayBe.prototype.map = function (fn) {
 	return this.isNothing() ? MayBe.of(null) : MayBe.of(fn(this.value));
 };
 
+MayBe.prototype.join = function () {
+	return this.isNothing() ? MayBe.of(null) : this.value;
+}
+
+MayBe.prototype.chain = function (f) {
+	return this.map(f).join();
+}
+
+const Nothing = function (val) {
+	this.value = val;
+};
+
+Nothing.of = function (val) {
+	return new Nothing(val);
+};
+
+Nothing.prototype.map = function (f) {
+	//! 注意Nothing map 什么事都不做
+	return this;
+};
+
+const Some = function (val) {
+	this.value = val;
+};
+
+Some.of = function (val) {
+	return new Some(val);
+};
+
+Some.prototype.map = function (fn) {
+	return Some.of(fn(this.value));
+}
+
+const Either = {
+	Some: Some,
+	Nothing: Nothing
+}
+
 export {
 	forEach, every, some, tap, unary, once, menolized,
 	map, filter, concatAll, reduce1, reduce, zip,
 	curry, curryN, partial,
 	compose, composeN, pipe,
-	Container, MayBe,
+	Container, MayBe, Some, Nothing, Either
 }
