@@ -327,10 +327,20 @@ MayBe.prototype.map = function (fn) {
 	return this.isNothing() ? MayBe.of(null) : MayBe.of(fn(this.value));
 };
 
+/**
+ * 简化多层MayBe包裹的情况，方便上层使用
+ * @returns 
+ */
 MayBe.prototype.join = function () {
 	return this.isNothing() ? MayBe.of(null) : this.value;
 }
 
+/**
+ * 拥有chain的函子是一个Monad
+ * 作用：组合map和join，简化处理
+ * @param {*} f 
+ * @returns 
+ */
 MayBe.prototype.chain = function (f) {
 	return this.map(f).join();
 }
