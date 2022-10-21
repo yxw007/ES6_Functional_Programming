@@ -20,7 +20,7 @@ features:
   - title: 高阶函数
     details: 常用高阶函数forEach、every、some、tap、unary、once、menolized 实现及测试demo
   - title: 数组的函数式编程
-    details: 包含map、filter、oncatAll、reduce、zip 实现及测试demo
+    details: 包含map、filter、oncatAll、reduce、zip 实现及测试demo等等
   - title: 柯里化应用
     details: 包含常见应用场景示例demo及实现，比如：add、创建表格、日志函数、从数组中寻找包含数字的元素等
   - title: 组合与函子
