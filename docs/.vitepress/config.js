@@ -6,7 +6,12 @@ export default {
 		nav: nav(),
 		sidebar: {
 			'/guide/': slidebarGuide()
-		}
+		},
+		algolia: {
+			appId: 'BG4MNL811T',
+			apiKey: '31eef0c35a545baab316777e138a6771',
+			indexName: 'pup'
+		},
 	}
 }
 
