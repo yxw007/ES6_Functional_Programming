@@ -1,6 +1,7 @@
 export default {
 	title: "Functional Programming",
 	description: "函数式编程学习",
+	base: '/ES6_Functional_Programming/',
 	themeConfig: {
 		nav: nav(),
 		sidebar: {
