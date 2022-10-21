@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [master]
 env:
-  super_secret: ${{secret.MY_SECRET}}
+  super_secret: ${{ secrets.MY_SECRET }}
 jobs:
   Build:
     # The type of runner that the job will run on
