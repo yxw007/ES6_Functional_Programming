@@ -7,6 +7,12 @@ export default {
 		sidebar: {
 			'/guide/': slidebarGuide()
 		},
+
+		editLink: {
+			pattern: 'https://github.com/yxw007/ES6_Functional_Programming/edit/master/docs/:path',
+			text: 'Edit this page on GitHub'
+		},
+
 		algolia: {
 			appId: 'BG4MNL811T',
 			apiKey: '31eef0c35a545baab316777e138a6771',
