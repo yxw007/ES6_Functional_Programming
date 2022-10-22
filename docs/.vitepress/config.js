@@ -13,6 +13,15 @@ export default {
 			text: 'Edit this page on GitHub'
 		},
 
+		socialLinks: [
+			{ icon: 'github', link: 'https://github.com/yxw007/ES6_Functional_Programming' }
+		],
+
+		footer: {
+			message: 'Released under the MIT License.',
+			copyright: 'Copyright © 2019-present Potter'
+		},
+
 		algolia: {
 			appId: 'BG4MNL811T',
 			apiKey: '31eef0c35a545baab316777e138a6771',
