@@ -1,13 +1,22 @@
-# 函数式编程实践
+<h1 align="center">函数式编程实践</h1>
 
-- [函数式编程实践](#函数式编程实践)
-	- [关于项目](#关于项目)
-	- [背景](#背景)
-	- [安装](#安装)
-	- [使用](#使用)
-	- [许可证](#许可证)
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/yxw007/ES6_Functional_Programming/CI/master?label=CI)
+![GitHub](https://img.shields.io/github/license/yxw007/ES6_Functional_Programming)
+![npm](https://img.shields.io/npm/v/vitepress?label=vitepress)
 
-## 关于项目
+<!-- omit in toc -->
+## 目录
+- [背景](#背景)
+- [项目结构](#项目结构)
+- [安装](#安装)
+- [使用](#使用)
+- [许可证](#许可证)
+ 
+ ## 背景
+
+我虽然看完了JS红宝书，但是在js编程方式上总感觉还是缺点什么，于是在网友的推荐下，阅读了[**JavaScript ES6 函数式编程入门经典**](https://book.douban.com/subject/30180100/) 豆瓣评分：8.4，本书电子书在book目录中，推荐大家读读
+
+## 项目结构
 
 ```
 |-- src
@@ -32,9 +41,6 @@
 
 **在线笔记文档：https://yanxuewen.cn/ES6_Functional_Programming/** 
 
-## 背景
-
-我虽然看完了JS红宝书，但是在js编程方式上总感觉还是缺点什么，于是在网友的推荐下，阅读了[**JavaScript ES6 函数式编程入门经典**](https://book.douban.com/subject/30180100/) 豆瓣评分：8.4，本书电子书在book目录中，推荐大家读读
 
 ## 安装
 
