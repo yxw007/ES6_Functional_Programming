@@ -30,6 +30,8 @@
     `-- 《JavaScript ES6函数式编程入门经典》_Anto Aravinth_梁宵_201801.pdf
 ```
 
+**在线笔记文档：https://yanxuewen.cn/ES6_Functional_Programming/** 
+
 ## 背景
 
 我虽然看完了JS红宝书，但是在js编程方式上总感觉还是缺点什么，于是在网友的推荐下，阅读了[**JavaScript ES6 函数式编程入门经典**](https://book.douban.com/subject/30180100/) 豆瓣评分：8.4，本书电子书在book目录中，推荐大家读读
