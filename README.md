@@ -1,8 +1,9 @@
 <h1 align="center">函数式编程实践</h1>
 
-![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/yxw007/ES6_Functional_Programming/CI/master?label=CI)
-![GitHub](https://img.shields.io/github/license/yxw007/ES6_Functional_Programming)
-![npm](https://img.shields.io/npm/v/vitepress?label=vitepress)
+<p align="center">
+	<img alt="GitHub Workflow Status (branch)" src="https://img.shields.io/github/workflow/status/yxw007/ES6_Functional_Programming/CI/master?label=CI" />
+	<img src="https://img.shields.io/npm/v/vitepress?label=vitepress" />
+</p>
 
 <!-- omit in toc -->
 ## 目录
