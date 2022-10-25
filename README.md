@@ -43,10 +43,20 @@
 **在线笔记文档：https://yanxuewen.cn/ES6_Functional_Programming/** 
 
 
-## 安装
+## 快速开始
+
+- 安装依赖
 
 ```
 pnpm install
+```
+- 运行
+```
+pnpm docs:dev
+```
+- 打包
+```
+pnpm docs:build
 ```
 
 ## 使用
