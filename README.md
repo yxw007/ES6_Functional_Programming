@@ -11,20 +11,20 @@
 
 ```
 |-- src
-|   |-- lib											实现源码
+|   |-- lib                                     实现源码
 |   |   `-- es6-functional.js		
-|   |-- helper.js									测试辅助
-|   |-- 5.函子									 	函子相关demo
+|   |-- helper.js                               测试辅助
+|   |-- 5.函子                                  函子相关demo
 |   |   `-- index.js
-|   |-- 4.组合与管道						 			组合与管道相关demo
+|   |-- 4.组合与管道                             组合与管道相关demo
 |   |   `-- index.js
-|   |-- 3.柯里化								 		柯里化相关demo
+|   |-- 3.柯里化                                柯里化相关demo
 |   |   `-- index.js
-|   |-- 2.数组函数式编程				  				数组函数相关demo
+|   |-- 2.数组函数式编程                         数组函数相关demo
 |   |   `-- index.js
-|   `-- 1.高阶函数							 		高阶函数相关demo
+|   `-- 1.高阶函数                              高阶函数相关demo
 |       `-- index.js
-|-- docs											在线笔记文档目录
+|-- docs                                       在线笔记文档目录
 |   `-- guide
 `-- book											
     `-- 《JavaScript ES6函数式编程入门经典》_Anto Aravinth_梁宵_201801.pdf
