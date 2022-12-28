@@ -6,9 +6,9 @@
     <title>函子 | Functional Programming</title>
     <meta name="description" content="函数式编程学习">
     <link rel="stylesheet" href="/ES6_Functional_Programming/assets/style.7f1a394d.css">
-    <link rel="modulepreload" href="/ES6_Functional_Programming/assets/chunks/VPAlgoliaSearchBox.a179badc.js">
-    <link rel="modulepreload" href="/ES6_Functional_Programming/assets/app.4445c11c.js">
-    <link rel="modulepreload" href="/ES6_Functional_Programming/assets/guide_functor.md.1b87c88f.lean.js">
+    <link rel="modulepreload" href="/ES6_Functional_Programming/assets/chunks/VPAlgoliaSearchBox.649b4751.js">
+    <link rel="modulepreload" href="/ES6_Functional_Programming/assets/app.04426873.js">
+    <link rel="modulepreload" href="/ES6_Functional_Programming/assets/guide_functor.md.f8e9bfd4.lean.js">
     
     <script id="check-dark-light">(()=>{const e=localStorage.getItem("vitepress-theme-appearance"),a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
   </head>
@@ -314,8 +314,8 @@
 <span class="line"><span style="color:#A6ACCD;">console</span><span style="color:#89DDFF;">.</span><span style="color:#82AAFF;">log</span><span style="color:#A6ACCD;">(</span><span style="color:#89DDFF;">&quot;</span><span style="color:#C3E88D;">res2:</span><span style="color:#89DDFF;">&quot;</span><span style="color:#89DDFF;">,</span><span style="color:#A6ACCD;"> res2)</span><span style="color:#89DDFF;">;</span></span>
 <span class="line"><span style="color:#676E95;">//res2: Nothing { value: { message: &#39;Something went wrong&#39;, errorCode: 404 } }</span></span>
 <span class="line"></span></code></pre></div></li></ul><h1 id="总结" tabindex="-1">总结 <a class="header-anchor" href="#总结" aria-hidden="true">#</a></h1><ul><li>函子是实现了一个 map 契约的对象</li><li>利用 MayBe 包裹隐藏非空判断逻辑，方便上层无心智的使用数据</li><li>利用 Either 可以让我们更轻易的区分错误分支信息</li><li>只有 of 和 map 的是 MayBe 函子，含有 chain 的函子是一个 Monad，所以最终的 MayBe 是即使一个函子也是一个 Monad</li></ul><h1 id="参考文献" tabindex="-1">参考文献 <a class="header-anchor" href="#参考文献" aria-hidden="true">#</a></h1><ul><li></li></ul><blockquote><p>以上：如发现有问题，欢迎留言指出，我及时更正</p></blockquote></div></div></main><!--[--><!--]--><footer class="VPDocFooter" data-v-424fdb15 data-v-c0a5e953><div class="edit-info" data-v-c0a5e953><div class="edit-link" data-v-c0a5e953><a class="VPLink link edit-link-button" href="https://github.com/yxw007/ES6_Functional_Programming/edit/master/docs/guide/functor.md" target="_blank" rel="noreferrer" data-v-c0a5e953 data-v-711d9b65><!--[--><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="edit-link-icon" data-v-c0a5e953><path d="M18,23H4c-1.7,0-3-1.3-3-3V6c0-1.7,1.3-3,3-3h7c0.6,0,1,0.4,1,1s-0.4,1-1,1H4C3.4,5,3,5.4,3,6v14c0,0.6,0.4,1,1,1h14c0.6,0,1-0.4,1-1v-7c0-0.6,0.4-1,1-1s1,0.4,1,1v7C21,21.7,19.7,23,18,23z"></path><path d="M8,17c-0.3,0-0.5-0.1-0.7-0.3C7,16.5,6.9,16.1,7,15.8l1-4c0-0.2,0.1-0.3,0.3-0.5l9.5-9.5c1.2-1.2,3.2-1.2,4.4,0c1.2,1.2,1.2,3.2,0,4.4l-9.5,9.5c-0.1,0.1-0.3,0.2-0.5,0.3l-4,1C8.2,17,8.1,17,8,17zM9.9,12.5l-0.5,2.1l2.1-0.5l9.3-9.3c0.4-0.4,0.4-1.1,0-1.6c-0.4-0.4-1.2-0.4-1.6,0l0,0L9.9,12.5z M18.5,2.5L18.5,2.5L18.5,2.5z"></path></svg> Edit this page on GitHub<!--]--><!----></a></div><!----></div><div class="prev-next" data-v-c0a5e953><div class="pager" data-v-c0a5e953><a class="pager-link prev" href="/ES6_Functional_Programming/guide/combination.html" data-v-c0a5e953><span class="desc" data-v-c0a5e953>Previous page</span><span class="title" data-v-c0a5e953>组合</span></a></div><div class="has-prev pager" data-v-c0a5e953><!----></div></div></footer><!--[--><!--]--></div></div></div></div></div><footer class="VPFooter has-sidebar" data-v-99a2cdae data-v-8a7e4f4f><div class="container" data-v-8a7e4f4f><p class="message" data-v-8a7e4f4f>Released under the MIT License.</p><p class="copyright" data-v-8a7e4f4f>Copyright © 2019-present Potter</p></div></footer><!--[--><!--]--></div></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"guide_array-functional.md\":\"f409093a\",\"guide_combination.md\":\"38852109\",\"guide_currying.md\":\"048b3e31\",\"guide_functor.md\":\"1b87c88f\",\"guide_higher-order-functions.md\":\"ef4e9045\",\"index.md\":\"17ce510a\"}")</script>
-    <script type="module" async src="/ES6_Functional_Programming/assets/app.4445c11c.js"></script>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"guide_array-functional.md\":\"7f1d3a82\",\"guide_combination.md\":\"0fdd5251\",\"guide_currying.md\":\"889848d8\",\"guide_functor.md\":\"f8e9bfd4\",\"guide_higher-order-functions.md\":\"95d922a3\",\"index.md\":\"7fc1f917\"}")</script>
+    <script type="module" async src="/ES6_Functional_Programming/assets/app.04426873.js"></script>
     
   </body>
 </html>
