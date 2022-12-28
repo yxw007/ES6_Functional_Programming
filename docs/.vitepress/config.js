@@ -23,9 +23,9 @@ export default {
 		},
 
 		algolia: {
-			appId: 'BG4MNL811T',
-			apiKey: '31eef0c35a545baab316777e138a6771',
-			indexName: 'pup'
+			appId: 'BWOJ3MPK1G',
+			apiKey: '4fdf058db92753c8a422705b734d2872',
+			indexName: 'yanxuewen'
 		},
 	}
 }
